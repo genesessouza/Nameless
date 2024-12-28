@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef NMLS_PLATFORM_WINDOWS
+#if NMLS_DYNAMIC_LINK
 	#ifdef NMLS_BUILD_DLL
-		#define NAMELESS_API __declspec(dllexport)
+		#define  __declspec(dllexport)
 	#else
-		#define NAMELESS_API __declspec(dllimport)
+		#define  __declspec(dllimport)
 	#endif
+#else
+	#define NAMELESS_API
+#endif
 #else
 	#error Nameless only supports Windows
 #endif

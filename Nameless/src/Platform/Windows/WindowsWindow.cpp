@@ -144,7 +144,7 @@ namespace Nameless
 		glfwSetWindowPosCallback(m_Window, [](GLFWwindow* window, int xPos, int yPos)
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-			WindowMovedEvent event(xPos, yPos);
+			WindowMovedEvent event((float)xPos, (float)yPos);
 			data.EventCallback(event);
 		});
 	}

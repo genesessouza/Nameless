@@ -7,7 +7,7 @@
 
 namespace Nameless
 {
-	class NAMELESS_API LayerStack
+	class  LayerStack
 	{
 	public:
 		LayerStack();

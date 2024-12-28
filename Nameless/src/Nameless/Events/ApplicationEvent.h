@@ -4,7 +4,7 @@
 
 namespace Nameless {
 
-	class NAMELESS_API WindowResizeEvent : public Event
+	class  WindowResizeEvent : public Event
 	{
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
@@ -27,7 +27,7 @@ namespace Nameless {
 		unsigned int m_Width, m_Height;
 	};
 
-	class NAMELESS_API WindowMovedEvent : public Event
+	class  WindowMovedEvent : public Event
 	{
 	public:
 		WindowMovedEvent(float xPos, float yPos)
@@ -50,7 +50,7 @@ namespace Nameless {
 		float m_WindowX, m_WindowY;
 	};
 
-	class NAMELESS_API WindowCloseEvent : public Event
+	class  WindowCloseEvent : public Event
 	{
 	public:
 		WindowCloseEvent() = default;
@@ -59,7 +59,7 @@ namespace Nameless {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class NAMELESS_API AppTickEvent : public Event
+	class  AppTickEvent : public Event
 	{
 	public:
 		AppTickEvent() = default;
@@ -68,7 +68,7 @@ namespace Nameless {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class NAMELESS_API AppUpdateEvent : public Event
+	class  AppUpdateEvent : public Event
 	{
 	public:
 		AppUpdateEvent() = default;
@@ -77,7 +77,7 @@ namespace Nameless {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class NAMELESS_API AppRenderEvent : public Event
+	class  AppRenderEvent : public Event
 	{
 	public:
 		AppRenderEvent() = default;

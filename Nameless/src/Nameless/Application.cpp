@@ -52,7 +52,7 @@ namespace Nameless {
 	{
 		while (m_Running)
 		{
-			glClearColor(0.3, 0.3, 0.3, 1);
+			glClearColor(0.3f, 0.3f, 0.3f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			for (Layer* layer : m_LayerStack)

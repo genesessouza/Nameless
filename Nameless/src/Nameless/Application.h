@@ -9,7 +9,7 @@
 
 namespace Nameless
 {
-	class NAMELESS_API Application
+	class  Application
 	{
 	public:
 		Application();

@@ -23,9 +23,10 @@ include "Nameless/vendor/ImGui"
 
 project "Nameless"
 	location "Nameless"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++20"
+	staticruntime "on"
 
 	targetdir ("bin/".. outputdir.. "/%{prj.name}")
 	objdir ("bin-int/".. outputdir.. "/%{prj.name}")
@@ -37,8 +38,7 @@ project "Nameless"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
-		"%{prj.name}/vendor/glm/glm/**.hpp",
-		"%{prj.name}/vendo/glm/glm/**.inl"
+		"%{prj.name}/vendor/glm/glm/**.inl"
 
 	}
 
@@ -62,7 +62,7 @@ project "Nameless"
 	}
 
 	filter "system:windows"
-		cppdialect "C++20"
+
 		systemversion "latest"
 		buildoptions "/utf-8"
 
@@ -70,34 +70,31 @@ project "Nameless"
 		{
 			"NMLS_PLATFORM_WINDOWS",
 			"NMLS_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
-		}
-
-		postbuildcommands
-		{
-			("{COPYDIR} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			"GLFW_INCLUDE_NONE",
+			"_CRT_SECURE_NO_WARNINGS"
 		}
 
 		filter "configurations:Debug"
 			defines "NMLS_DEBUG"
 			runtime "Debug"
-			symbols "On"
+			symbols "on"
 
 		filter "configurations:Release"
 			defines "NMLS_RELEASE"
 			runtime "Release"
-			optimize "On"
+			optimize "on"
 
 		filter "configurations:Dist"
 			defines "NMLS_DIST"
 			runtime "Release"
-			optimize "On"
+			optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++20"
+	staticruntime "on"
 
 	targetdir ("bin/".. outputdir.. "/%{prj.name}")
 	objdir ("bin-int/".. outputdir.. "/%{prj.name}")
@@ -121,8 +118,7 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++20"
-		staticruntime "On"
+		staticruntime "on"
 		systemversion "latest"
 		buildoptions "/utf-8"
 
@@ -133,15 +129,12 @@ project "Sandbox"
 
 		filter "configurations:Debug"
 			defines "NMLS_DEBUG"
-			buildoptions "/MDd"
-			symbols "On"
+			symbols "on"
 
 		filter "configurations:Release"
 			defines "NMLS_RELEASE"
-			buildoptions "/MD"
-			optimize "On"
+			optimize "on"
 
 		filter "configurations:Dist"
 			defines "NMLS_DIST"
-			buildoptions "/MD"
-			optimize "On"
+			optimize "on"

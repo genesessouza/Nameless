@@ -22,7 +22,7 @@ namespace Nameless
 		}
 	};
 
-	class NAMELESS_API Window
+	class  Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
