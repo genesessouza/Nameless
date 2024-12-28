@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Nameless/vendor/GLFW/include"
 IncludeDir["Glad"] = "Nameless/vendor/Glad/include"
 IncludeDir["ImGui"] = "Nameless/vendor/imgui"
+IncludeDir["glm"] = "Nameless/vendor/glm"
 
 include "Nameless/vendor/GLFW"
 include "Nameless/vendor/Glad"
@@ -35,7 +36,10 @@ project "Nameless"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendo/glm/glm/**.inl"
+
 	}
 
 	includedirs
@@ -44,7 +48,8 @@ project "Nameless"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -106,7 +111,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Nameless/vendor/spdlog/include",
-		"Nameless/src"
+		"Nameless/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links
