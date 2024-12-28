@@ -7,3 +7,6 @@
 [submodule "Nameless/vendor/imgui"]
 	path = Nameless/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Nameless/vendor/glm"]
+	path = Nameless/vendor/glm
+	url = https://github.com/g-truc/glm
