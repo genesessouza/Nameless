@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Nameless">
+      <UniqueIdentifier>{FD1836A8-E9E5-90B3-12FF-7E5BFE2AC641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nameless\Events">
+      <UniqueIdentifier>{4126F003-ADB1-5DC8-B6C2-E0BC22CDB9C8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nameless\ImGui">
+      <UniqueIdentifier>{E797BE74-D365-B27A-BCF9-22A1A8668EDF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Nameless.h" />
+    <ClInclude Include="src\Nameless\Application.h">
+      <Filter>Nameless</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\Core.h">
+      <Filter>Nameless</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\EntryPoint.h">
+      <Filter>Nameless</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\Events\ApplicationEvent.h">
+      <Filter>Nameless\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\Events\Event.h">
+      <Filter>Nameless\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\Events\KeyEvent.h">
+      <Filter>Nameless\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\Events\MouseEvent.h">
+      <Filter>Nameless\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\ImGui\ImGuiLayer.h">
+      <Filter>Nameless\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\Input.h">
+      <Filter>Nameless</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\KeyCodes.h">
+      <Filter>Nameless</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\Layer.h">
+      <Filter>Nameless</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\LayerStack.h">
+      <Filter>Nameless</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\Log.h">
+      <Filter>Nameless</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\MouseButtonCodes.h">
+      <Filter>Nameless</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nameless\Window.h">
+      <Filter>Nameless</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\nmlspch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Nameless\Application.cpp">
+      <Filter>Nameless</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Nameless\ImGui\ImGuiLayer.cpp">
+      <Filter>Nameless\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Nameless\Layer.cpp">
+      <Filter>Nameless</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Nameless\LayerStack.cpp">
+      <Filter>Nameless</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Nameless\Log.cpp">
+      <Filter>Nameless</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\nmlspch.cpp" />
+  </ItemGroup>
+</Project>
