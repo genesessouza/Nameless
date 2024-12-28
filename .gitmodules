@@ -1,0 +1,9 @@
+[submodule "Nameless/vendor/spdlog"]
+	path = Nameless/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "Nameless/vendor/glfw"]
+	path = Nameless/vendor/glfw
+	url = https://github.com/TheCherno/GLFW
+[submodule "Nameless/vendor/imgui"]
+	path = Nameless/vendor/imgui
+	url = https://github.com/TheCherno/imgui
