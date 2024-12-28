@@ -1,6 +1,3 @@
 .vs/
 bin/
 bin-int/
-Nameless/vendor/Glad
-Nameless/vendor/imgui
-Nameless/vendor/GLFW
