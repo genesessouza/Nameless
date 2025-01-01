@@ -9,7 +9,7 @@ public:
 	}
 
 	void OnUpdate() override
-	{		
+	{
 	}
 
 	void OnEvent(Nameless::Event& event) override
@@ -30,7 +30,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Nameless::ImGuiLayer());
 	}
 
 	~Sandbox()
