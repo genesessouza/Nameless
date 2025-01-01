@@ -39,7 +39,6 @@ project "Nameless"
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.inl"
-
 	}
 
 	includedirs
