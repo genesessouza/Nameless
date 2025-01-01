@@ -1,11 +1,13 @@
 #pragma once
 
 #include "Core.h"
-#include "LayerStack.h"
-#include "Events/Event.h"
-#include "Nameless/Events/ApplicationEvent.h"
 
 #include "Window.h"
+#include "Nameless/LayerStack.h"
+#include "Nameless/Events/Event.h"
+#include "Nameless/Events/ApplicationEvent.h"
+
+#include "Nameless/ImGui/ImGuiLayer.h"
 
 namespace Nameless
 {
@@ -28,6 +30,7 @@ namespace Nameless
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:
