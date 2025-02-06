@@ -2,8 +2,7 @@
 .DS_Store
 
 ## Dear ImGui artifacts
-imgui.ini
-imgui*.ini
+
 
 ## General build artifacts
 *.o
