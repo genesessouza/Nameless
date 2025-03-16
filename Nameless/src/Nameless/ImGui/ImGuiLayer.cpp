@@ -3,9 +3,10 @@
 
 #include "imgui.h"
 
-#define IMGUI_IMPL_API
+#ifdef IMGUI_IMPL_API
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
+#endif
 
 #include <Nameless/Application.h>
 

@@ -30,9 +30,9 @@ namespace Nameless
 
 		struct WindowData
 		{
-			std::string Title;
-			unsigned int Width, Height;
-			bool VSync;
+			std::string Title = "";
+			unsigned int Width, Height = 0;
+			bool VSync = false;
 
 			EventCallbackFn EventCallback;
 		};
