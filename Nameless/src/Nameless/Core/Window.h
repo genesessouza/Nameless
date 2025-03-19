@@ -2,9 +2,9 @@
 
 #include "nmlspch.h"
 
-#include "Nameless/Core.h"
+#include "Nameless/Core/Core.h"
 #include "Nameless/Events/Event.h"
-#include "Nameless/Log.h"
+#include "Nameless/Core/Log.h"
 
 namespace Nameless
 {

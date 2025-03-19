@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Nameless/Window.h"
+#include "Nameless/Core/Window.h"
+#include "Nameless/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -27,6 +28,7 @@ namespace Nameless
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Nameless/Input.h"
+#include "Nameless/Input/Input.h"
 
 namespace Nameless
 {

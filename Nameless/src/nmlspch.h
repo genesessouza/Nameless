@@ -12,7 +12,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Nameless/Log.h"
+#include "Nameless/Core/Log.h"
 
 #ifdef NMLS_PLATFORM_WINDOWS
 	#include <Windows.h>

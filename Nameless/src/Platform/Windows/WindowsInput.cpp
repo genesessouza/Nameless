@@ -1,7 +1,7 @@
 #include "nmlspch.h"
 #include "WindowsInput.h"
 
-#include "Nameless/Application.h"
+#include "Nameless/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Nameless

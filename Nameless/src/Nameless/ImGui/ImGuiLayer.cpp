@@ -8,7 +8,7 @@
 #include "backends/imgui_impl_opengl3.h"
 #endif
 
-#include <Nameless/Application.h>
+#include <Nameless/Core/Application.h>
 
 // TEMP
 #include <GLFW/glfw3.h>

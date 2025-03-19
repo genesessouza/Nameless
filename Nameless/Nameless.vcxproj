@@ -147,21 +147,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Nameless.h" />
-    <ClInclude Include="src\Nameless\Application.h" />
-    <ClInclude Include="src\Nameless\Core.h" />
-    <ClInclude Include="src\Nameless\EntryPoint.h" />
+    <ClInclude Include="src\Nameless\Core\Application.h" />
+    <ClInclude Include="src\Nameless\Core\Core.h" />
+    <ClInclude Include="src\Nameless\Core\EntryPoint.h" />
     <ClInclude Include="src\Nameless\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Nameless\Events\Event.h" />
     <ClInclude Include="src\Nameless\Events\KeyEvent.h" />
     <ClInclude Include="src\Nameless\Events\MouseEvent.h" />
     <ClInclude Include="src\Nameless\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="src\Nameless\Input.h" />
-    <ClInclude Include="src\Nameless\KeyCodes.h" />
-    <ClInclude Include="src\Nameless\Layer.h" />
-    <ClInclude Include="src\Nameless\LayerStack.h" />
-    <ClInclude Include="src\Nameless\Log.h" />
-    <ClInclude Include="src\Nameless\MouseButtonCodes.h" />
-    <ClInclude Include="src\Nameless\Window.h" />
+    <ClInclude Include="src\Nameless\Input\Input.h" />
+    <ClInclude Include="src\Nameless\Input\KeyCodes.h" />
+    <ClInclude Include="src\Nameless\Core\Layer.h" />
+    <ClInclude Include="src\Nameless\Core\LayerStack.h" />
+    <ClInclude Include="src\Nameless\Core\Log.h" />
+    <ClInclude Include="src\Nameless\Input\MouseButtonCodes.h" />
+    <ClInclude Include="src\Nameless\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Nameless\Core\Window.h" />
+    <ClInclude Include="src\Nameless\Renderer\Shader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\nmlspch.h" />
@@ -305,12 +308,14 @@
     <ClInclude Include="vendor\glm\glm\gtx\wrap.inl" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Nameless\Application.cpp" />
+    <ClCompile Include="src\Nameless\Core\Application.cpp" />
     <ClCompile Include="src\Nameless\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Nameless\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="src\Nameless\Layer.cpp" />
-    <ClCompile Include="src\Nameless\LayerStack.cpp" />
-    <ClCompile Include="src\Nameless\Log.cpp" />
+    <ClCompile Include="src\Nameless\Core\Layer.cpp" />
+    <ClCompile Include="src\Nameless\Core\LayerStack.cpp" />
+    <ClCompile Include="src\Nameless\Core\Log.cpp" />
+    <ClCompile Include="src\Nameless\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\nmlspch.cpp">

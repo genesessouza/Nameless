@@ -2,7 +2,7 @@
 
 #include "nmlspch.h"
 
-#include "Nameless/Core.h"
+#include "Nameless/Core/Core.h"
 
 namespace Nameless {
 

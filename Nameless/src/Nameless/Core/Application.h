@@ -3,11 +3,13 @@
 #include "Core.h"
 
 #include "Window.h"
-#include "Nameless/LayerStack.h"
+#include "Nameless/Core/LayerStack.h"
 #include "Nameless/Events/Event.h"
 #include "Nameless/Events/ApplicationEvent.h"
 
 #include "Nameless/ImGui/ImGuiLayer.h"
+
+#include <Nameless/Renderer/Shader.h>
 
 namespace Nameless
 {
@@ -33,6 +35,10 @@ namespace Nameless
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
+
+		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
+
 	private:
 		static Application* s_Instance;
 	};
