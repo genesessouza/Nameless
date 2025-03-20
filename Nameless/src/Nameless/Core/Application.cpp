@@ -21,36 +21,37 @@ namespace Nameless {
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 
-		glGenVertexArrays(1, &m_VertexArray);
-		glBindVertexArray(m_VertexArray);
+		m_VertexArray.reset(VertexArray::Create());
 
-		glGenBuffers(1, &m_VertexBuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
-
-		float vertices[3 * 3] =
+		float square[3 * 4] =
 		{
-			-0.5f, -0.5f, 0.0f,
-			 0.5f, -0.5f, 0.0f,
-			 0.0f, 0.5f, 0.0f
+			-0.8f, -0.9f, 0.0f,
+			 0.8f, -0.9f, 0.0f,
+			 0.8f,  0.9f, 0.0f,
+			-0.8f,  0.9f, 0.0f
 		};
 
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+		std::shared_ptr<VertexBuffer> vertexBuffer;
+		vertexBuffer.reset(VertexBuffer::Create(square, sizeof(square)));
 
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+		BufferLayout squareLayout = {
+			{ ShaderDataType::Float3, "a_Position" }
+		};
 
-		glGenBuffers(1, &m_IndexBuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
+		vertexBuffer->SetLayout(squareLayout);
+		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
-		unsigned int indices[3] = { 0, 1, 2 };
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-		
+		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
+		std::shared_ptr<IndexBuffer> indexBuffer;
+		indexBuffer.reset(IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		m_VertexArray->SetIndexBuffer(indexBuffer);
+
 		std::string vertexSrc = R"(
 			#version 330 core
 			
 			layout(location = 0) in vec3 a_Position;
 
-			out vec3 n_Position;			
+			out vec3 n_Position;
 
 			void main()
 			{
@@ -65,14 +66,72 @@ namespace Nameless {
 			layout(location = 0) out vec4 color;
 			
 			in vec3 n_Position;
+			in vec4 n_Color;
+			
+			void main()
+			{
+				color =  vec4(0.7, 0.1, 0.2, 1.0);
+			}
+		)";
+		m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
+
+		m_PrismVertexArray.reset(VertexArray::Create());
+
+		float prismVertices[7 * 7] =
+		{
+			-0.15f,  0.0f, 0.0f,
+			 0.00f, -0.5f, 0.0f,
+			 0.15f,  0.0f, 0.0f,
+			-0.15f,  0.0f, 0.0f,
+
+			 0.15f,  0.0f, 0.0f,
+			 0.00f,  0.5f, 0.0f,
+			-0.15f,  0.5f, 0.0f
+		};
+
+		std::shared_ptr<VertexBuffer> prismVertexBuffer;
+		prismVertexBuffer.reset(VertexBuffer::Create(prismVertices, sizeof(prismVertices)));
+
+		prismVertexBuffer->SetLayout({
+			{ ShaderDataType::Float3, "a_Position" }
+		});
+
+		m_PrismVertexArray->AddVertexBuffer(prismVertexBuffer);
+
+		unsigned int prismIndices[7] = { 0, 1, 2, 3, 4, 5, 6 };
+
+		std::shared_ptr<IndexBuffer> prismIndexBuffer;
+		prismIndexBuffer.reset(IndexBuffer::Create(prismIndices, sizeof(prismIndices) / sizeof(uint32_t)));
+		m_PrismVertexArray->SetIndexBuffer(prismIndexBuffer);
+
+		std::string vertexSrc2 = R"(
+			#version 330 core
+			
+			layout(location = 0) in vec3 a_Position;
+
+			out vec3 n_Position;
 
 			void main()
 			{
-				color = vec4(n_Position * 0.5 + 0.5, 1.0);
+				n_Position = a_Position;
+				gl_Position = vec4(a_Position, 1.0);
 			}
 		)";
 
-		m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
+		std::string fragmentSrc2 = R"(
+			#version 330 core
+			
+			layout(location = 0) out vec4 color;
+			
+			in vec3 n_Position;
+			
+			void main()
+			{
+				color =  vec4(0, 0.7, 0, 1.0);
+			}
+		)";
+
+		m_Shader2.reset(new Shader(vertexSrc2, fragmentSrc2));
 	}
 
 	Application::~Application()
@@ -112,9 +171,12 @@ namespace Nameless {
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			m_Shader->Bind();
+			m_VertexArray->Bind();
+			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 
-			glBindVertexArray(m_VertexArray);
-			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+			m_Shader2->Bind();
+			m_PrismVertexArray->Bind();
+			glDrawElements(GL_TRIANGLES, m_PrismVertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();

@@ -9,7 +9,9 @@
 
 #include "Nameless/ImGui/ImGuiLayer.h"
 
-#include <Nameless/Renderer/Shader.h>
+#include "Nameless/Renderer/Shader.h"
+#include "Nameless/Renderer/Buffer.h"
+#include "Nameless/Renderer/VertexArray.h"
 
 namespace Nameless
 {
@@ -36,9 +38,11 @@ namespace Nameless
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
-		std::unique_ptr<Shader> m_Shader;
-
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArray> m_VertexArray;
+		
+		std::shared_ptr<Shader> m_Shader2;
+		std::shared_ptr<VertexArray> m_PrismVertexArray;
 	private:
 		static Application* s_Instance;
 	};
