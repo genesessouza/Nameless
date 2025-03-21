@@ -9,4 +9,13 @@
 
 #include "Nameless/ImGui/ImGuiLayer.h"
 
+#include "Nameless/Renderer/Renderer.h"
+#include "Nameless/Renderer/RenderCommand.h"
+
+#include "Nameless/Renderer/Buffer.h"
+#include "Nameless/Renderer/Shader.h"
+#include "Nameless/Renderer/VertexArray.h"
+
+#include "Nameless/Renderer/OrthographicCamera.h"
+
 #include "Nameless/Core/EntryPoint.h"

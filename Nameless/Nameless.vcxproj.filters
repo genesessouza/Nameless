@@ -521,6 +521,11 @@
     <ClInclude Include="src\Nameless\Renderer\Renderer.h" />
     <ClInclude Include="src\Nameless\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Nameless\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Nameless\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Nameless\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Nameless\Renderer\Geometry.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Nameless\Core\Application.cpp">
@@ -557,5 +562,9 @@
     <ClCompile Include="src\Nameless\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Nameless\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Nameless\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Nameless\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Nameless\Renderer\OrthographicCamera.cpp" />
   </ItemGroup>
 </Project>

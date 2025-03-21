@@ -10,8 +10,8 @@ namespace Nameless
 	{
 		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::None: NMLS_CORE_ASSERT(false, "RendererAPI::None is not supported!"); return nullptr;
-			case RendererAPI::OpenGL: return new OpenGLVertexArray();
+			case RendererAPI::API::None: NMLS_CORE_ASSERT(false, "RendererAPI::None is not supported!"); return nullptr;
+			case RendererAPI::API::OpenGL: return new OpenGLVertexArray();
 		}
 
 		NMLS_CORE_ASSERT(false, "Unknown API!");

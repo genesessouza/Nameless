@@ -12,6 +12,7 @@
 #include "Nameless/Renderer/Shader.h"
 #include "Nameless/Renderer/Buffer.h"
 #include "Nameless/Renderer/VertexArray.h"
+#include "Nameless/Renderer/OrthographicCamera.h"
 
 namespace Nameless
 {
@@ -37,12 +38,6 @@ namespace Nameless
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-		
-		std::shared_ptr<Shader> m_Shader2;
-		std::shared_ptr<VertexArray> m_PrismVertexArray;
 	private:
 		static Application* s_Instance;
 	};
