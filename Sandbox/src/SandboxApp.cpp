@@ -14,13 +14,13 @@ public:
 		float prismVertices[28 * 3] =
 		{
 			-0.3f,  0.0f, 0.0f,
-			 0.0f, -0.7f, 0.0f,
+			 0.0f, -0.5f, 0.0f,
 			 0.3f,  0.0f, 0.0f,
 			-0.3f,  0.0f, 0.0f,
 
 			 0.3f,  0.0f, 0.0f,
-			 0.0f,  0.7f, 0.0f,
-			-0.3f,  0.7f, 0.0f,
+			 0.0f,  0.5f, 0.0f,
+			-0.3f,  0.5f, 0.0f,
 		};
 
 		std::shared_ptr<Nameless::VertexBuffer> prismVertexBuffer;
@@ -70,22 +70,24 @@ public:
 		m_Shader.reset(new Nameless::Shader(vertexSrc, fragmentSrc));
 	}
 
-	void OnUpdate() override
+	void OnUpdate(Nameless::Timestep timestep) override
 	{
+		NMLS_TRACE("Delta Time: [{0}s] ({1}ms)", timestep.GetSeconds(), timestep.GetMiliSeconds());
+
 		if (Nameless::Input::IsKeyPressed(NMLS_KEY_LEFT))
-			m_CameraPosition.x += m_CameraMovmentSpeed;
+			m_CameraPosition.x += m_CameraMovmentSpeed * timestep;
 		else if (Nameless::Input::IsKeyPressed(NMLS_KEY_RIGHT))
-			m_CameraPosition.x -= m_CameraMovmentSpeed;
+			m_CameraPosition.x -= m_CameraMovmentSpeed * timestep;
 
 		if (Nameless::Input::IsKeyPressed(NMLS_KEY_UP))
-			m_CameraPosition.y -= m_CameraMovmentSpeed;
+			m_CameraPosition.y -= m_CameraMovmentSpeed * timestep;
 		else if (Nameless::Input::IsKeyPressed(NMLS_KEY_DOWN))
-			m_CameraPosition.y += m_CameraMovmentSpeed;
+			m_CameraPosition.y += m_CameraMovmentSpeed * timestep;
 
 		if (Nameless::Input::IsKeyPressed(NMLS_KEY_E))
-			m_CameraRotation -= m_CameraRotationSpeed;
+			m_CameraRotation -= m_CameraRotationSpeed * timestep;
 		else if (Nameless::Input::IsKeyPressed(NMLS_KEY_Q))
-			m_CameraRotation += m_CameraRotationSpeed;
+			m_CameraRotation += m_CameraRotationSpeed * timestep;
 
 		Nameless::RenderCommand::SetClearColor({ 0.3f, 0.3f, 0.3f, 1.0f });
 		Nameless::RenderCommand::Clear();
@@ -116,10 +118,10 @@ private:
 	Nameless::OrthographicCamera m_OrthoCamera;
 
 	glm::vec3 m_CameraPosition;
-	float m_CameraMovmentSpeed = 0.03f;
+	float m_CameraMovmentSpeed = 10.0f;
 
 	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 1.0f;
+	float m_CameraRotationSpeed = 90.0f;
 };
 
 class Sandbox : public Nameless::Application

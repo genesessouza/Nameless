@@ -10,5 +10,31 @@ namespace Nameless
 
 	Layer::~Layer()
 	{
+
+	}
+
+	void Layer::OnAttach()
+	{
+
+	}
+
+	void Layer::OnDetach()
+	{
+
+	}
+
+	void Layer::OnUpdate(Timestep timestep)
+	{
+
+	}
+
+	void Layer::OnImGuiRender()
+	{
+
+	}
+
+	void Layer::OnEvent(Event& event)
+	{
+
 	}
 }

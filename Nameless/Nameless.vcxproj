@@ -150,6 +150,7 @@
     <ClInclude Include="src\Nameless\Core\Application.h" />
     <ClInclude Include="src\Nameless\Core\Core.h" />
     <ClInclude Include="src\Nameless\Core\EntryPoint.h" />
+    <ClInclude Include="src\Nameless\Core\Timestep.h" />
     <ClInclude Include="src\Nameless\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Nameless\Events\Event.h" />
     <ClInclude Include="src\Nameless\Events\KeyEvent.h" />

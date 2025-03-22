@@ -526,6 +526,7 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Nameless\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Nameless\Renderer\Geometry.h" />
+    <ClInclude Include="src\Nameless\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Nameless\Core\Application.cpp">

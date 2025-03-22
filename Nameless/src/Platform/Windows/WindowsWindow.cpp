@@ -5,6 +5,7 @@
 #include "Nameless/Events/KeyEvent.h"
 #include "Nameless/Events/MouseEvent.h"
 
+#include <glad/glad.h>
 #include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Nameless
@@ -37,9 +38,6 @@ namespace Nameless
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
-
-		NMLS_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
-
 		if (!s_GLFWInitialized)
 		{
 			int success = glfwInit();
@@ -55,6 +53,8 @@ namespace Nameless
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
+
+		NMLS_CORE_INFO("GraphicsRenderer: {0}", reinterpret_cast<const char*>(glGetString(GL_RENDERER)));
 
 		// GLFW Event Callbacks
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
